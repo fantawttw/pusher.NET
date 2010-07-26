@@ -2,4 +2,6 @@ pusher.NET
 
 Copyright 2010, Jon Burrows. Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 
+A VB.NET implementation of the Pusher REST API
+
 Currently under development.
