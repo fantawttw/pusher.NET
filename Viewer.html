@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--
+=====================================================================================================================
+
+
+Copyright 2010, Jon Burrows. Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+
+
+=====================================================================================================================
+-->
+    <title>Pusher.NET Viewer Page</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="http://js.pusherapp.com/1.4/pusher.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        WebSocket.__swfLocation = "/Javascript/WebSocketMain.swf";
+    </script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            // var socketLiveView = new Pusher('APP KEY', 'CHANNEL TO LISTEN ON');
+            var socketLiveView = new Pusher('a8b69347fd6146d0466a', 'dotNETDemo');
+
+            socketLiveView.bind("Event", function (data) {
+
+                var _element = '<li style="display:none;" class="new"><p>' + data + '</p></li>';
+                $('.pushIT ul').prepend(_element);
+                $('.new').slideDown();
+                $('.new').removeClass('new');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="pushIT">
+        <ul>
+        </ul>
+    </div>
+</body>
+</html>
