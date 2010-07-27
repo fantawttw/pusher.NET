@@ -126,10 +126,10 @@ Public Class Pusher
         Return _Buffer.ToString
     End Function
 
-    Private Function ByteToString(ByVal buff As Byte()) As String
+    Private Function ByteToHex(ByVal buff As Byte()) As String
         Dim sbinary As String = ""
         For i As Integer = 0 To buff.Length - 1
-            sbinary += buff(i).ToString("X2") ' HEX Format
+            sbinary += buff(i).ToString("x2") ' HEX Format
         Next
         Return (sbinary)
     End Function
@@ -139,7 +139,7 @@ Public Class Pusher
         Dim ByteSourceText() As Byte = myEncoder.GetBytes(Data)
         Dim MD5 As New MD5CryptoServiceProvider()
         Dim ByteHash() As Byte = MD5.ComputeHash(ByteSourceText)
-        Return ByteToString(ByteHash).ToLower
+        Return ByteToHex(ByteHash)
     End Function
 
     Private Function HMACSHA256Hasher(ByVal Data As String) As String
@@ -148,6 +148,6 @@ Public Class Pusher
         Dim XML() As Byte = myEncoder.GetBytes(Data)
         Dim myHMACSHA256 As New System.Security.Cryptography.HMACSHA256(Key)
         Dim HashCode As Byte() = myHMACSHA256.ComputeHash(XML)
-        Return ByteToString(HashCode).PadLeft(64, "0").ToLower
+        Return ByteToHex(HashCode).PadLeft(64, "0")
     End Function
 End Class
