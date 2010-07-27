@@ -4,4 +4,8 @@ Copyright 2010, Jon Burrows. Licensed under the MIT license: http://www.opensour
 
 A VB.NET implementation of the Pusher REST API
 
-Currently under development.
+Viewer.html - This lets you view the pushed messages.
+Sender.aspx - This sends the messages to PusherApp.Com
+
+App_Code/pusher.vb - This is the .NET implementation of the Pusher REST API
+Javascript/WebSocketMain.swf - This is the Flash Based Fallback
