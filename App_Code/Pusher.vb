@@ -92,7 +92,7 @@ Public Class Pusher
         _Buffer.Append("auth_key=")
         _Buffer.Append(PusherAppKey)
         _Buffer.Append("&auth_timestamp=")
-        _Buffer.Append(DateTime.Now.AddHours(-1).Subtract(New DateTime(1970, 1, 1)).TotalSeconds)
+        _Buffer.Append(DateTime.UtcNow.Subtract(New DateTime(1970, 1, 1)).TotalSeconds)
         _Buffer.Append("&auth_version=1.0")
         _Buffer.Append("&body_md5=")
         _Buffer.Append(MD5Hasher(jsonData))
